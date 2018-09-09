@@ -15,6 +15,8 @@ const char* password = "...";
 IPAddress MQTTserver(192, 168, 2, 100);
 WiFiClient espClient;
 PubSubClient client(espClient);
+const char* stateTopic = "home/binary_sensor/entrance_lock/state";
+const char* configTopic = "home/binary_sensor/entrance_lock/config";
 
 void setup() {
   Serial.begin(115200);
@@ -53,7 +55,7 @@ void reconnect() {
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
       // Once connected, publish an announcement...
-      client.publish("/Home/Status/DoorLock", "1");
+      client.publish(configTopic, "{\"name\": \"Entrance Lock\", \"device_class\": \"lock\"}");
       // ... and resubscribe
     } else {
       Serial.print("failed, rc=");
@@ -74,14 +76,13 @@ void loop() {
 
   buttonState = digitalRead(buttonPin);
   if (buttonState == HIGH) {
-    Serial.println("Locked");
     if (isLocked == false) {
-      client.publish("/Home/Data/DoorLock", "0");
+      client.publish(stateTopic, "OFF");
       isLocked = true;
     }
   } else {
     if (isLocked == true) {
-      client.publish("/Home/Data/DoorLock", "1");
+      client.publish(stateTopic, "ON");
       isLocked = false;
     }
   }
