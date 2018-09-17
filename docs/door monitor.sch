@@ -1,0 +1,303 @@
+EESchema Schematic File Version 4
+LIBS:door monitor-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:Earth #PWR06
+U 1 1 5B9CA4FE
+P 5950 5400
+F 0 "#PWR06" H 5950 5150 50  0001 C CNN
+F 1 "Earth" H 5950 5250 50  0001 C CNN
+F 2 "" H 5950 5400 50  0001 C CNN
+F 3 "~" H 5950 5400 50  0001 C CNN
+	1    5950 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5B9CA772
+P 5850 2800
+F 0 "R1" H 5920 2846 50  0000 L CNN
+F 1 "R10k" H 5920 2755 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 5780 2800 50  0001 C CNN
+F 3 "~" H 5850 2800 50  0001 C CNN
+	1    5850 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 5B9CA7C2
+P 7350 2800
+F 0 "R4" H 7420 2846 50  0000 L CNN
+F 1 "R10k" H 7420 2755 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 7280 2800 50  0001 C CNN
+F 3 "~" H 7350 2800 50  0001 C CNN
+	1    7350 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5B9CA81E
+P 6900 2800
+F 0 "R3" H 6970 2846 50  0000 L CNN
+F 1 "R10k" H 6970 2755 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 6830 2800 50  0001 C CNN
+F 3 "~" H 6900 2800 50  0001 C CNN
+	1    6900 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 2600 5850 2650
+Connection ~ 5850 2600
+$Comp
+L ESP8266:ESP-01v090 U2
+U 1 1 5B9CAEC8
+P 5800 4150
+F 0 "U2" V 5754 4528 50  0000 L CNN
+F 1 "ESP-01v090" V 5845 4528 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x04_P2.54mm_Vertical_Flip" H 5800 4150 50  0001 C CNN
+F 3 "http://l0l.org.uk/2014/12/esp8266-modules-hardware-guide-gotta-catch-em-all/" H 5800 4150 50  0001 C CNN
+	1    5800 4150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5650 2600 5650 3200
+Wire Wire Line
+	5850 5150 5850 5100
+Wire Wire Line
+	5750 5100 5750 5300
+Wire Wire Line
+	5850 2600 6350 2600
+Wire Wire Line
+	5850 5150 6900 5150
+Wire Wire Line
+	6900 2650 6900 2600
+Wire Wire Line
+	5750 5300 7350 5300
+$Comp
+L Connector:Screw_Terminal_01x02 J2
+U 1 1 5B9CFFB5
+P 7650 3800
+F 0 "J2" H 7730 3792 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 7730 3701 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 7650 3800 50  0001 C CNN
+F 3 "~" H 7650 3800 50  0001 C CNN
+	1    7650 3800
+	1    0    0    -1  
+$EndComp
+Connection ~ 5650 2600
+Wire Wire Line
+	7450 3800 6900 3800
+Wire Wire Line
+	6900 2950 6900 3800
+Connection ~ 6900 3800
+Wire Wire Line
+	6900 3800 6900 5150
+Wire Wire Line
+	7450 3900 7350 3900
+Wire Wire Line
+	7350 2950 7350 3900
+Connection ~ 7350 3900
+Wire Wire Line
+	7350 3900 7350 5300
+$Comp
+L Regulator_Linear:LM2937xS U1
+U 1 1 5B9CFE45
+P 4450 2600
+F 0 "U1" H 4450 2842 50  0000 C CNN
+F 1 "LM2937xS" H 4450 2751 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown" H 4450 2825 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2937.pdf" H 4450 2550 50  0001 C CNN
+	1    4450 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5B9D01B4
+P 4000 3200
+F 0 "C1" H 4115 3246 50  0000 L CNN
+F 1 "C0.1mF" H 4115 3155 50  0000 L CNN
+F 2 "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal" H 4038 3050 50  0001 C CNN
+F 3 "~" H 4000 3200 50  0001 C CNN
+	1    4000 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C2
+U 1 1 5B9D02DB
+P 5000 3200
+F 0 "C2" H 5118 3246 50  0000 L CNN
+F 1 "CP10mF" H 5118 3155 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D4.0mm_P2.00mm" H 5038 3050 50  0001 C CNN
+F 3 "~" H 5000 3200 50  0001 C CNN
+	1    5000 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR03
+U 1 1 5B9D0D5C
+P 4000 3700
+F 0 "#PWR03" H 4000 3450 50  0001 C CNN
+F 1 "Earth" H 4000 3550 50  0001 C CNN
+F 2 "" H 4000 3700 50  0001 C CNN
+F 3 "~" H 4000 3700 50  0001 C CNN
+	1    4000 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR05
+U 1 1 5B9D0DA0
+P 5000 3700
+F 0 "#PWR05" H 5000 3450 50  0001 C CNN
+F 1 "Earth" H 5000 3550 50  0001 C CNN
+F 2 "" H 5000 3700 50  0001 C CNN
+F 3 "~" H 5000 3700 50  0001 C CNN
+	1    5000 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5950 5100 5950 5400
+$Comp
+L power:Earth #PWR01
+U 1 1 5B9D24A7
+P 3300 3700
+F 0 "#PWR01" H 3300 3450 50  0001 C CNN
+F 1 "Earth" H 3300 3550 50  0001 C CNN
+F 2 "" H 3300 3700 50  0001 C CNN
+F 3 "~" H 3300 3700 50  0001 C CNN
+	1    3300 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 2600 3750 2600
+Wire Wire Line
+	4750 2600 5000 2600
+Wire Wire Line
+	5000 3050 5000 2600
+Connection ~ 5000 2600
+Wire Wire Line
+	5000 2600 5650 2600
+Wire Wire Line
+	4000 3350 4000 3700
+Wire Wire Line
+	5000 3350 5000 3700
+$Comp
+L power:Earth #PWR04
+U 1 1 5B9D4CBB
+P 4450 3700
+F 0 "#PWR04" H 4450 3450 50  0001 C CNN
+F 1 "Earth" H 4450 3550 50  0001 C CNN
+F 2 "" H 4450 3700 50  0001 C CNN
+F 3 "~" H 4450 3700 50  0001 C CNN
+	1    4450 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 2900 4450 3700
+Wire Wire Line
+	5650 2600 5850 2600
+$Comp
+L power:+5V #PWR02
+U 1 1 5B9D5440
+P 3750 2300
+F 0 "#PWR02" H 3750 2150 50  0001 C CNN
+F 1 "+5V" H 3765 2473 50  0000 C CNN
+F 2 "" H 3750 2300 50  0001 C CNN
+F 3 "" H 3750 2300 50  0001 C CNN
+	1    3750 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 2300 3750 2600
+$Comp
+L Connector:USB_B_Mini J1
+U 1 1 5B9D5CB0
+P 3300 2800
+F 0 "J1" H 3355 3267 50  0000 C CNN
+F 1 "USB_B_Mini" H 3355 3176 50  0000 C CNN
+F 2 "Connector_USB:USB_Mini-B_Lumberg_2486_01_Horizontal" H 3450 2750 50  0001 C CNN
+F 3 "~" H 3450 2750 50  0001 C CNN
+	1    3300 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 3200 3300 3700
+Connection ~ 3750 2600
+Wire Wire Line
+	3750 2600 4000 2600
+Wire Wire Line
+	4000 2600 4000 3050
+Connection ~ 4000 2600
+Wire Wire Line
+	4000 2600 4150 2600
+$Comp
+L Device:R R2
+U 1 1 5B9DACF1
+P 6350 2800
+F 0 "R2" H 6420 2846 50  0000 L CNN
+F 1 "R10k" H 6420 2755 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 6280 2800 50  0001 C CNN
+F 3 "~" H 6350 2800 50  0001 C CNN
+	1    6350 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 3050 6350 2950
+Wire Wire Line
+	6350 2650 6350 2600
+Connection ~ 6350 2600
+$Comp
+L Switch:SW_Push SW1
+U 1 1 5B9DBDCA
+P 6350 3450
+F 0 "SW1" V 6304 3598 50  0000 L CNN
+F 1 "SW_Push" V 6395 3598 50  0000 L CNN
+F 2 "Button_Switch_THT:SW_PUSH_6mm_H5mm" H 6350 3650 50  0001 C CNN
+F 3 "" H 6350 3650 50  0001 C CNN
+	1    6350 3450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6350 3250 6350 3050
+Connection ~ 6350 3050
+$Comp
+L power:Earth #PWR07
+U 1 1 5B9DD0FE
+P 6350 3850
+F 0 "#PWR07" H 6350 3600 50  0001 C CNN
+F 1 "Earth" H 6350 3700 50  0001 C CNN
+F 2 "" H 6350 3850 50  0001 C CNN
+F 3 "~" H 6350 3850 50  0001 C CNN
+	1    6350 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 3650 6350 3850
+NoConn ~ 5950 3200
+NoConn ~ 5650 5100
+Wire Wire Line
+	6900 2600 7350 2600
+Wire Wire Line
+	7350 2600 7350 2650
+Connection ~ 6900 2600
+Wire Wire Line
+	6350 2600 6900 2600
+Wire Wire Line
+	5750 3050 5750 3200
+Wire Wire Line
+	5750 3050 6350 3050
+Wire Wire Line
+	5850 3200 5850 2950
+$EndSCHEMATC
