@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:door monitor-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -233,7 +232,7 @@ F 3 "~" H 3450 2750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3300 3200 3300 3700
+	3300 3200 3300 3450
 Connection ~ 3750 2600
 Wire Wire Line
 	3750 2600 4000 2600
@@ -300,4 +299,11 @@ Wire Wire Line
 	5750 3050 6350 3050
 Wire Wire Line
 	5850 3200 5850 2950
+Wire Wire Line
+	3200 3200 3200 3450
+Wire Wire Line
+	3200 3450 3300 3450
+Connection ~ 3300 3450
+Wire Wire Line
+	3300 3450 3300 3700
 $EndSCHEMATC
