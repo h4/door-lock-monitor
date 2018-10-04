@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:door monitor-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -128,7 +129,7 @@ U 1 1 5B9D01B4
 P 4000 3200
 F 0 "C1" H 4115 3246 50  0000 L CNN
 F 1 "C0.1mF" H 4115 3155 50  0000 L CNN
-F 2 "Capacitor_THT:C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal" H 4038 3050 50  0001 C CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 4038 3050 50  0001 C CNN
 F 3 "~" H 4000 3200 50  0001 C CNN
 	1    4000 3200
 	1    0    0    -1  
@@ -139,7 +140,7 @@ U 1 1 5B9D02DB
 P 5000 3200
 F 0 "C2" H 5118 3246 50  0000 L CNN
 F 1 "CP10mF" H 5118 3155 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D4.0mm_P2.00mm" H 5038 3050 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 5038 3050 50  0001 C CNN
 F 3 "~" H 5000 3200 50  0001 C CNN
 	1    5000 3200
 	1    0    0    -1  
@@ -306,4 +307,72 @@ Wire Wire Line
 Connection ~ 3300 3450
 Wire Wire Line
 	3300 3450 3300 3700
+$Comp
+L Connector:Conn_01x02_Male J3
+U 1 1 5BB0CB87
+P 6400 1300
+F 0 "J3" H 6506 1478 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 6506 1387 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal" H 6400 1300 50  0001 C CNN
+F 3 "~" H 6400 1300 50  0001 C CNN
+	1    6400 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J4
+U 1 1 5BB0CD51
+P 8300 1400
+F 0 "J4" H 8273 1280 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 8273 1371 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal" H 8300 1400 50  0001 C CNN
+F 3 "~" H 8300 1400 50  0001 C CNN
+	1    8300 1400
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 5BB0DF22
+P 7100 1050
+F 0 "R5" V 6893 1050 50  0000 C CNN
+F 1 "R" V 6984 1050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 7030 1050 50  0001 C CNN
+F 3 "~" H 7100 1050 50  0001 C CNN
+	1    7100 1050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6600 1400 8100 1400
+NoConn ~ 3600 2800
+NoConn ~ 3600 2900
+NoConn ~ 3600 3000
+NoConn ~ 2900 1000
+$Comp
+L Device:LED D1
+U 1 1 5BB0DE4B
+P 7650 1050
+F 0 "D1" H 7641 1266 50  0000 C CNN
+F 1 "LED" H 7641 1175 50  0000 C CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7650 1050 50  0001 C CNN
+F 3 "~" H 7650 1050 50  0001 C CNN
+	1    7650 1050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 1050 7500 1050
+Wire Wire Line
+	6600 1300 6800 1300
+Wire Wire Line
+	6950 1050 6800 1050
+Wire Wire Line
+	6800 1050 6800 1300
+Connection ~ 6800 1300
+Wire Wire Line
+	6800 1300 8000 1300
+Wire Wire Line
+	7800 1050 8000 1050
+Wire Wire Line
+	8000 1050 8000 1300
+Connection ~ 8000 1300
+Wire Wire Line
+	8000 1300 8100 1300
 $EndSCHEMATC
