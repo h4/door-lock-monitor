@@ -2,40 +2,40 @@
 #include <MQTT.h>
 #include <PubSubClient.h>
 #include <ESP8266WiFi.h>
+#include "connection.h"
 
-const int buttonPin = 2;
-const int pulldownPin = 0;
+const int ledPin = 0;
+const int rxPin = 3;
 int buttonState = 0;
 bool isLocked = false;
+
 void setup_wifi(void);
 void reconnect(void);
 
-const char* ssid = "...";
-const char* password = "...";
-IPAddress MQTTserver(192, 168, 2, 100);
+IPAddress MQTTserver;
 WiFiClient espClient;
 PubSubClient client(espClient);
 const char* stateTopic = "home/binary_sensor/entrance_lock/state";
 const char* configTopic = "home/binary_sensor/entrance_lock/config";
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200, SERIAL_8N1, SERIAL_TX_ONLY);
   Serial.println("Init");
   setup_wifi();
+  MQTTserver.fromString(MQTT_SERVER);
   client.setServer(MQTTserver, 1883);
-  pinMode(buttonPin, INPUT);
-  pinMode(pulldownPin, OUTPUT);
-  digitalWrite(pulldownPin, LOW);
+  pinMode(ledPin, OUTPUT);
+  pinMode(rxPin, INPUT_PULLUP);
+  digitalWrite(ledPin, LOW);
 }
 
 void setup_wifi() {
   delay(10);
-  // We start by connecting to a WiFi network
   Serial.println();
   Serial.print("Connecting to ");
-  Serial.println(ssid);
+  Serial.println(SSID);
 
-  WiFi.begin(ssid, password);
+  WiFi.begin(SSID, PASSWORD);
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -51,17 +51,13 @@ void setup_wifi() {
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
-    // Attempt to connect
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
-      // Once connected, publish an announcement...
       client.publish(configTopic, "{\"name\": \"Entrance Lock\", \"device_class\": \"lock\"}");
-      // ... and resubscribe
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
       Serial.println(" try again in 5 seconds");
-      // Wait 5 seconds before retrying
       delay(5000);
     }
   }
@@ -74,16 +70,19 @@ void loop() {
     reconnect();
   }
 
-  buttonState = digitalRead(buttonPin);
+  buttonState = digitalRead(rxPin);
+  Serial.println(buttonState);
   if (buttonState == HIGH) {
     if (isLocked == false) {
       client.publish(stateTopic, "OFF");
       isLocked = true;
+      digitalWrite(ledPin, HIGH);
     }
   } else {
     if (isLocked == true) {
       client.publish(stateTopic, "ON");
       isLocked = false;
+      digitalWrite(ledPin, LOW);
     }
   }
 }

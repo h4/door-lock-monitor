@@ -1,6 +1,6 @@
 {
     "terminal.integrated.env.osx": {
-        "PATH": "/Users/h4/.platformio/penv/bin:/Users/h4/.platformio/penv:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+        "PATH": "/Users/h4/.platformio/penv/bin:/Users/h4/.platformio/penv:/Users/h4/bin/google-cloud-sdk/bin:/usr/local/opt/gettext/bin:/Users/h4/Library/Python/3.7/bin:/Users/h4/go/bin:/Users/h4/bin:/Users/h4/.npm-global/bin:/Users/h4/Projects/Arrival/bashizm:/Users/h4/Projects/Arrival/cloud-deploy:/Users/h4/Library/Haskell/bin:/usr/local/opt/coreutils/libexec/gnubin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Users/h4/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
         "PLATFORMIO_CALLER": "vscode"
     }
 }
