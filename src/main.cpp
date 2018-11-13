@@ -35,6 +35,7 @@ void setup_wifi() {
   Serial.print("Connecting to ");
   Serial.println(SSID);
 
+  WiFi.mode(WIFI_STA);
   WiFi.begin(SSID, PASSWORD);
 
   while (WiFi.status() != WL_CONNECTED) {
